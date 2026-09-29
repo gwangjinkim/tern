@@ -58,6 +58,12 @@
   Previously, `variables$weights_method` could unintentionally override
   the `weights_method` argument due to a bug.
   ([\#1521](https://github.com/pharmaverse/tern/issues/1521))
+- Fixed
+  [`rtable2gg()`](https://pharmaverse.github.io/tern/reference/rtable2gg.md)
+  (and therefore
+  [`g_forest()`](https://pharmaverse.github.io/tern/reference/g_forest.md))
+  to avoid a “length of dimension 2 is not a multiple of logical
+  subscript length” warning under R-devel that caused CRAN check errors.
 
 #### Miscellaneous
 

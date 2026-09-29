@@ -65,6 +65,7 @@
 <div class="section level4">
 <h4 id="bug-fixes-0-9-11-9000">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-9-11-9000"></a></h4>
 <ul><li>Fixed an issue in <code><a href="../reference/prop_diff.html">s_proportion_diff()</a></code> where the <code>weights_method</code> argument was ignored. The <code>variables</code> argument, if supplied, can now only contain the <code>strata</code> element. Other elements, including <code>weights_method</code>, are no longer supported. Previously, <code>variables$weights_method</code> could unintentionally override the <code>weights_method</code> argument due to a bug. (<a href="https://github.com/pharmaverse/tern/issues/1521" class="external-link">#1521</a>)</li>
+<li>Fixed <code><a href="../reference/rtable2gg.html">rtable2gg()</a></code> (and therefore <code><a href="../reference/g_forest.html">g_forest()</a></code>) to avoid a “length of dimension 2 is not a multiple of logical subscript length” warning under R-devel that caused CRAN check errors.</li>
 </ul></div>
 <div class="section level4">
 <h4 id="miscellaneous-0-9-11-9000">Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous-0-9-11-9000"></a></h4>
