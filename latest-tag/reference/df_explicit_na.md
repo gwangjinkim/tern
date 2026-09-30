@@ -65,20 +65,20 @@ df_explicit_na(
 
   `"sort_auto"`
 
-  :   `sort(unique(x))` — default R sort, locale-aware (default).
-      Preserves the original behavior of this function.
+  : `sort(unique(x))` — default R sort, locale-aware (default).
+    Preserves the original behavior of this function.
 
   `"sort_radix"`
 
-  :   `sort(unique(x), method = "radix")` — byte-order (ASCII) sort.
-      Unlike `"sort_auto"`, this is not locale-sensitive: uppercase
-      letters always sort before lowercase. On data where all values
-      share the same case (e.g. all-caps ADaM variables) the two methods
-      produce identical results.
+  : `sort(unique(x), method = "radix")` — byte-order (ASCII) sort.
+    Unlike `"sort_auto"`, this is not locale-sensitive: uppercase
+    letters always sort before lowercase. On data where all values share
+    the same case (e.g. all-caps ADaM variables) the two methods produce
+    identical results.
 
   `"data"`
 
-  :   `unique(x)` — levels in order of first appearance in the data.
+  : `unique(x)` — levels in order of first appearance in the data.
 
 - factor_level_last_pattern:
 
@@ -106,9 +106,8 @@ values will be set as the last level.
 
 ## See also
 
-[`sas_na()`](https://insightsengineering.github.io/tern/reference/sas_na.md)
-and
-[`explicit_na()`](https://insightsengineering.github.io/tern/reference/explicit_na.md)
+[`sas_na()`](https://pharmaverse.github.io/tern/reference/sas_na.md) and
+[`explicit_na()`](https://pharmaverse.github.io/tern/reference/explicit_na.md)
 for other missing data helper functions.
 
 ## Examples

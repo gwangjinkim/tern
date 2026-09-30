@@ -21,7 +21,7 @@ estimate_proportion_diff(
   conf_level = 0.95,
   method = c("waldcc", "wald", "cmh", "cmh_sato", "cmh_mn", "ha", "newcombe",
     "newcombecc", "strat_newcombe", "strat_newcombecc", "uncond_exact_diff"),
-  weights_method = "cmh",
+  weights_method = c("cmh", "wilson_h"),
   var_labels = vars,
   na_str = default_na_str(),
   nested = TRUE,
@@ -34,19 +34,20 @@ estimate_proportion_diff(
   .stat_names = NULL,
   .formats = c(diff = "xx.x", diff_ci = "(xx.x, xx.x)", se_diff = "xx.x"),
   .labels = NULL,
-  .indent_mods = c(diff = 0L, diff_ci = 1L, se_diff = 1L)
+  .indent_mods = c(diff = 0L, diff_est_ci = 0L, diff_ci = 1L, se_diff = 1L)
 )
 
 s_proportion_diff(
   df,
   .var,
-  .ref_group,
-  .in_ref_col,
+  .ref_group = NULL,
+  .in_ref_col = NULL,
   variables = list(strata = NULL),
   conf_level = 0.95,
   method = c("waldcc", "wald", "cmh", "cmh_sato", "cmh_mn", "ha", "newcombe",
     "newcombecc", "strat_newcombe", "strat_newcombecc", "uncond_exact_diff"),
-  weights_method = "cmh",
+  weights_method = c("cmh", "wilson_h"),
+  val = TRUE,
   ...
 )
 
@@ -91,8 +92,11 @@ a_proportion_diff(
 - weights_method:
 
   (`string`)\
-  weights method. Can be either `"cmh"` or `"heuristic"` and directs the
-  way weights are estimated.
+  method used to estimate the weights for stratified Newcombe method.
+  Must be either `"cmh"` or `"wilson_h"`. `"cmh"` uses weights derived
+  from the Cochran-Mantel-Haenszel method, while `"wilson_h"` uses the
+  heuristic weights proposed by
+  [`prop_strat_wilson()`](https://pharmaverse.github.io/tern/reference/h_proportions.md).
 
 - var_labels:
 
@@ -144,14 +148,14 @@ a_proportion_diff(
   (`character`)\
   statistics to select for the table.
 
-  Options are: `'diff', 'diff_ci'`
+  Options are: `'diff', 'diff_ci', 'diff_est_ci'`
 
 - .stat_names:
 
   (`character`)\
   names of the statistics that are passed directly to name single
   statistics (`.stats`). This option is visible when producing
-  [`rtables::as_result_df()`](https://insightsengineering.github.io/rtables/latest-tag/reference/data.frame_export.html)
+  [`rtables::as_result_df()`](https://rdrr.io/pkg/rtables/man/data.frame_export.html)
   with `make_ard = TRUE`.
 
 - .formats:
@@ -192,25 +196,34 @@ a_proportion_diff(
   (`flag`)\
   `TRUE` when working with the reference level, `FALSE` otherwise.
 
+- val:
+
+  (`character(1)` or `logical(1)`)\
+  the value in `df[[.var]]` (and, if supplied, in `.ref_group[[.var]]`)
+  that defines a positive response. All other observations are treated
+  as non-responses.
+
 ## Value
 
 - `estimate_proportion_diff()` returns a layout object suitable for
   passing to further layouting functions, or to
-  [`rtables::build_table()`](https://insightsengineering.github.io/rtables/latest-tag/reference/build_table.html).
+  [`rtables::build_table()`](https://rdrr.io/pkg/rtables/man/build_table.html).
   Adding this function to an `rtable` layout will add formatted rows
   containing the statistics from `s_proportion_diff()` to the table
   layout.
 
 &nbsp;
 
-- `s_proportion_diff()` returns a named list of elements `diff` and
-  `diff_ci`. Depending on the method used, also the standard error of
-  the difference `se_diff` is returned.
+- `s_proportion_diff()` returns a named list containing the elements
+  `diff`, `diff_ci`, and `diff_est_ci` (`diff_est_ci` combines the
+  `diff` and `diff_ci` values into a 3-element vector). Depending on the
+  method used, also the standard error of the difference `se_diff` is
+  returned.
 
 &nbsp;
 
 - `a_proportion_diff()` returns the corresponding list with formatted
-  [`rtables::CellValue()`](https://insightsengineering.github.io/rtables/latest-tag/reference/CellValue.html).
+  [`rtables::CellValue()`](https://rdrr.io/pkg/rtables/man/CellValue.html).
 
 ## Details
 
@@ -253,7 +266,7 @@ The possible methods are:
 - `estimate_proportion_diff()`: Layout-creating function which can take
   statistics function arguments and additional format arguments. This
   function is a wrapper for
-  [`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-tag/reference/analyze.html).
+  [`rtables::analyze()`](https://rdrr.io/pkg/rtables/man/analyze.html).
 
 - `s_proportion_diff()`: Statistics function estimating the difference
   in terms of responder proportion.
@@ -310,7 +323,9 @@ Intervals for Multiple Binomial Proportions.” *Stat. Biopharm. Res.*,
 
 ## See also
 
-[`d_proportion_diff()`](https://insightsengineering.github.io/tern/reference/d_proportion_diff.md)
+[`d_proportion_diff()`](https://pharmaverse.github.io/tern/reference/d_proportion_diff.md)
+
+[`h_prepare_rsp_table()`](https://pharmaverse.github.io/tern/reference/h_prepare_rsp_table.md)
 
 ## Examples
 
@@ -359,6 +374,12 @@ s_proportion_diff(
 #> attr(,"label")
 #> [1] "90% CI (Anderson-Hauck)"
 #> 
+#> $diff_est_ci
+#>      diff_ha diff_ci_ha_l diff_ci_ha_u 
+#>    12.000000    -5.374519    29.374519 
+#> attr(,"label")
+#> [1] "Difference in Response rate (%) and 90% CI (Anderson-Hauck)"
+#> 
 
 # CMH example with strata
 s_proportion_diff(
@@ -387,6 +408,12 @@ s_proportion_diff(
 #>    8.954617 
 #> attr(,"label")
 #> [1] "Standard Error of Difference in Response rate (%)"
+#> 
+#> $diff_est_ci
+#>      diff_cmh diff_ci_cmh_l diff_ci_cmh_u 
+#>      12.05847      -2.67057      26.78750 
+#> attr(,"label")
+#> [1] "Difference in Response rate (%) and 90% CI (CMH, without correction)"
 #> 
 
 a_proportion_diff(

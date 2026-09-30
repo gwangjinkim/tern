@@ -16,8 +16,8 @@
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Changelog">
-<meta property="og:image" content="https://insightsengineering.github.io/tern/logo.png">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><script src="../extra.js"></script><meta property="og:title" content="Changelog">
+<meta property="og:image" content="https://pharmaverse.github.io/tern/logo.png">
 <link rel="stylesheet" href="../consent.css">
 <script src="../consent.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">tern</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.12</small>
 
     <div style="width: 140px; margin-left: 0.5rem;"> <small class="nav-text text-muted me-auto">part of</small> <img src="https://github.com/insightsengineering/hex-stickers/blob/main/PNG/nest.png?raw=true" alt="NEST" style="height: 30px;"><a href="https://pharmaverse.org/" class="external-link"><img src="https://github.com/insightsengineering/hex-stickers/blob/main/PNG/pharmaverse.png?raw=true" alt="pharmaverse" style="height: 28px;"></a> </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/missing_values.html">Missing Values in Tern</a></li>
+<li><a class="dropdown-item" href="../articles/mantel_fleiss_criterion.html">The Mantel-Fleiss Criterion</a></li>
+    <li><a class="dropdown-item" href="../articles/missing_values.html">Missing Values in Tern</a></li>
     <li><a class="dropdown-item" href="../articles/tables.html">Tabulation</a></li>
     <li><a class="dropdown-item" href="../articles/tern_formats.html">Formatting Functions</a></li>
     <li><a class="dropdown-item" href="../articles/tern_functions_guide.html">Understanding `tern` functions</a></li>
@@ -57,6 +58,7 @@
 <li><a class="dropdown-item" href="../coverage-report/">Coverage report</a></li>
     <li><a class="dropdown-item" href="../unit-test-report/">Unit test report</a></li>
     <li><a class="dropdown-item" href="../unit-test-report-non-cran/">Non-CRAN unit test report</a></li>
+    <li><a class="external-link dropdown-item" href="https://pharmar.github.io/pharmapkgs/src/contrib/Meta/validation_report_tern_v0.9.11.html">Validation report</a></li>
   </ul>
 </li>
       <div><li class="nav-item dropdown">
@@ -65,6 +67,7 @@
     <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/release-candidate">release-candidate</a>
 <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/main">main</a>
 <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/latest-tag">latest-tag</a>
+<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/v0.9.12">v0.9.12</a>
 <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/v0.9.11">v0.9.11</a>
 <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/v0.9.10">v0.9.10</a>
 <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/tern/v0.9.9">v0.9.9</a>
@@ -102,7 +105,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/insightsengineering/tern" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/pharmaverse/tern" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -112,9 +115,17 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/insightsengineering/tern/blob/v0.9.11/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/pharmaverse/tern/blob/v0.9.12/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.12" id="tern-0912">tern 0.9.12<a class="anchor" aria-label="anchor" href="#tern-0912"></a>
+</h2>
+<p class="text-muted">CRAN release: 2026-09-29</p>
+<ul>
+<li>Fixing CRAN release issue.</li>
+</ul>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.11" id="tern-0911">tern 0.9.11<a class="anchor" aria-label="anchor" href="#tern-0911"></a>
 </h2>
@@ -123,24 +134,62 @@
 <h4 id="enhancements-0-9-11">Enhancements<a class="anchor" aria-label="anchor" href="#enhancements-0-9-11"></a>
 </h4>
 <ul>
-<li>Added <code>factor_level_method</code> argument to <code><a href="../reference/df_explicit_na.html">df_explicit_na()</a></code> to control factor level ordering when converting character or logical columns. Supported methods: <code>"sort_auto"</code> (default, locale-aware, preserves original behavior), <code>"sort_radix"</code> (byte-order / ASCII sort), and <code>"data"</code> (first-appearance order). (<a href="https://github.com/insightsengineering/tern/issues/1322" class="external-link">#1322</a>)</li>
+<li>Added <code>diff_est_ci</code> statistic to <code><a href="../reference/prop_diff.html">s_proportion_diff()</a></code>, combining the proportion difference and its confidence interval in a single 3-element vector. (<a href="https://github.com/pharmaverse/tern/issues/1523" class="external-link">#1523</a>)</li>
+<li>Added <code><a href="../reference/h_prepare_rsp_table.html">h_prepare_rsp_table()</a></code> to prepare contingency table(s) for proportion analyses. (<a href="https://github.com/pharmaverse/tern/issues/1514" class="external-link">#1514</a>)</li>
+<li>Added <code><a href="../reference/get_complete_cases.html">get_complete_cases()</a></code> to remove observations containing missing values. (<a href="https://github.com/pharmaverse/tern/issues/1514" class="external-link">#1514</a>)</li>
+<li>Added <code><a href="../reference/assertions.html">assert_proportion_data()</a></code> to validate responder, group, and optional stratification data used in proportion analyses. (<a href="https://github.com/pharmaverse/tern/issues/1514" class="external-link">#1514</a>).</li>
+<li>Added <code><a href="../reference/mantel_fleiss_crit.html">mantel_fleiss_crit()</a></code> to check the Mantel-Fleiss criterion for stratified 2 x 2 contingency tables, together with a vignette demonstrating its use. (<a href="https://github.com/pharmaverse/tern/issues/1512" class="external-link">#1512</a>)</li>
+<li>Added a <code>method_only</code> argument to <code><a href="../reference/d_proportion.html">d_proportion()</a></code>, <code><a href="../reference/d_proportion_diff.html">d_proportion_diff()</a></code>, and <code><a href="../reference/d_test_proportion_diff.html">d_test_proportion_diff()</a></code> to allow returning method labels without an additional description. (<a href="https://github.com/pharmaverse/tern/issues/1525" class="external-link">#1525</a>)</li>
+<li>Added <code>forest_header_above</code> and <code>forest_title</code> arguments to <code><a href="../reference/g_forest.html">g_forest()</a></code> to control the position of the forest plot header and add a forest plot title. (<a href="https://github.com/pharmaverse/tern/issues/1500" class="external-link">#1500</a>)</li>
+<li>Updated <code><a href="../reference/g_forest.html">g_forest()</a></code> to support point estimates and confidence intervals stored in a single column. (<a href="https://github.com/pharmaverse/tern/issues/1499" class="external-link">#1499</a>)</li>
+<li>Added the <code>exclude_rows</code> argument to <code><a href="../reference/g_forest.html">g_forest()</a></code> to allow excluding selected rows from the forest plot before plotting. (<a href="https://github.com/pharmaverse/tern/issues/1498" class="external-link">#1498</a>)</li>
+</ul>
+</div>
+<div class="section level4">
+<h4 id="bug-fixes-0-9-11">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-9-11"></a>
+</h4>
+<ul>
+<li>Fixed an issue in <code><a href="../reference/prop_diff.html">s_proportion_diff()</a></code> where the <code>weights_method</code> argument was ignored. The <code>variables</code> argument, if supplied, can now only contain the <code>strata</code> element. Other elements, including <code>weights_method</code>, are no longer supported. Previously, <code>variables$weights_method</code> could unintentionally override the <code>weights_method</code> argument due to a bug. (<a href="https://github.com/pharmaverse/tern/issues/1521" class="external-link">#1521</a>)</li>
+<li>Fixed <code><a href="../reference/rtable2gg.html">rtable2gg()</a></code> (and therefore <code><a href="../reference/g_forest.html">g_forest()</a></code>) to avoid a “length of dimension 2 is not a multiple of logical subscript length” warning under R-devel that caused CRAN check errors.</li>
+</ul>
+</div>
+<div class="section level4">
+<h4 id="miscellaneous-0-9-11">Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous-0-9-11"></a>
+</h4>
+<ul>
+<li>Updated <code><a href="../reference/prop_diff.html">s_proportion_diff()</a></code> and <code><a href="../reference/prop_diff_test.html">s_test_proportion_diff()</a></code> so that strata variables, if supplied, must be factors. Character-type strata variables are no longer supported. (<a href="https://github.com/pharmaverse/tern/issues/1514" class="external-link">#1514</a>)</li>
+<li>Updated <code><a href="../reference/prop_diff.html">s_proportion_diff()</a></code> and <code><a href="../reference/prop_diff_test.html">s_test_proportion_diff()</a></code> to throw an error when strata variable(s) are provided but an unstratified method is chosen. (<a href="https://github.com/pharmaverse/tern/issues/1514" class="external-link">#1514</a>)</li>
+<li>Added the <code>val</code> argument and refactored <code><a href="../reference/prop_diff.html">s_proportion_diff()</a></code> so that it uses the new function <code><a href="../reference/h_prepare_rsp_table.html">h_prepare_rsp_table()</a></code>.</li>
+<li>Added the <code>val</code> argument and refactored <code><a href="../reference/prop_diff_test.html">s_test_proportion_diff()</a></code> so that it uses the new function <code><a href="../reference/h_prepare_rsp_table.html">h_prepare_rsp_table()</a></code>.</li>
+</ul>
+</div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.11" id="tern-0911-1">tern 0.9.11<a class="anchor" aria-label="anchor" href="#tern-0911-1"></a>
+</h2>
+<p class="text-muted">CRAN release: 2026-07-17</p>
+<div class="section level4">
+<h4 id="enhancements-0-9-11-1">Enhancements<a class="anchor" aria-label="anchor" href="#enhancements-0-9-11-1"></a>
+</h4>
+<ul>
+<li>Added <code>factor_level_method</code> argument to <code><a href="../reference/df_explicit_na.html">df_explicit_na()</a></code> to control factor level ordering when converting character or logical columns. Supported methods: <code>"sort_auto"</code> (default, locale-aware, preserves original behavior), <code>"sort_radix"</code> (byte-order / ASCII sort), and <code>"data"</code> (first-appearance order). (<a href="https://github.com/pharmaverse/tern/issues/1322" class="external-link">#1322</a>)</li>
 <li>Added <code>factor_as_factor</code> argument to <code><a href="../reference/df_explicit_na.html">df_explicit_na()</a></code> to allow re-encoding of existing factor columns using <code>factor_level_method</code>. Defaults to <code>FALSE</code> to preserve original behavior.</li>
 <li>Added <code>factor_level_last_pattern</code> argument to <code><a href="../reference/df_explicit_na.html">df_explicit_na()</a></code> to move factor levels matching a regular expression to the end (before <code>na_level</code>).</li>
 <li>Added <code>alternative</code> argument to <code><a href="../reference/survival_coxph_pairwise.html">s_coxph_pairwise()</a></code> to allow one-sided hypothesis testing.</li>
 <li>Added <code>lr_stat_df</code> to the parameters return list of <code><a href="../reference/survival_coxph_pairwise.html">s_coxph_pairwise()</a></code>.</li>
 <li>Added <code>uncond_exact_diff</code> method to <code><a href="../reference/prop_diff.html">estimate_proportion_diff()</a></code> for the unconditional exact confidence interval for the difference in proportions by inverting one-sided tail tests over a nuisance parameter.</li>
-<li>Added <code>cmh_sato</code> method to <code><a href="../reference/prop_diff_test.html">test_proportion_diff()</a></code> for CMH testing with the Sato variance estimator. (<a href="https://github.com/insightsengineering/tern/issues/1482" class="external-link">#1482</a>)</li>
+<li>Added <code>cmh_sato</code> method to <code><a href="../reference/prop_diff_test.html">test_proportion_diff()</a></code> for CMH testing with the Sato variance estimator. (<a href="https://github.com/pharmaverse/tern/issues/1482" class="external-link">#1482</a>)</li>
 <li>Added <code>range_with_cens_info</code> statistic to <code><a href="../reference/survival_time.html">s_surv_time()</a></code>.</li>
 <li>Added <code>lsmean_se</code>, <code>lsmean_ci</code>, and <code>lsmean_diffci</code> statistics to <code><a href="../reference/summarize_ancova.html">s_ancova()</a></code>.</li>
 <li>Added <code><a href="../reference/summarize_ancova.html">s_ancova()</a></code> to exported functions.</li>
 <li>In <code>estimate_proportion_diff</code> now also the standard error is available for selected methods in the <code>se_diff</code> statistic.</li>
 <li>Exported <code><a href="../reference/h_incidence_rate.html">h_incidence_rate()</a></code> to allow to reuse the incidence rate estimation logic.</li>
 <li>Exported <code><a href="../reference/h_prop_diff_test.html">prop_chisq()</a></code>, <code><a href="../reference/h_prop_diff_test.html">prop_cmh()</a></code>, <code><a href="../reference/h_prop_diff_test.html">prop_fisher()</a></code>, and <code><a href="../reference/h_prop_diff_test.html">prop_schouten()</a></code> for standalone proportion difference testing.</li>
-<li>Added <code>digits</code> argument to <code><a href="../reference/h_tbl_median_surv.html">h_tbl_median_surv()</a></code> and <code><a href="../reference/control_annot.html">control_surv_med_annot()</a></code> to control the <code><a href="https://rdrr.io/r/base/Round.html" class="external-link">signif()</a></code> precision of the median survival time and confidence interval values annotated in <code><a href="../reference/g_km.html">g_km()</a></code>. (<a href="https://github.com/insightsengineering/tern/issues/1469" class="external-link">#1469</a>)</li>
+<li>Added <code>digits</code> argument to <code><a href="../reference/h_tbl_median_surv.html">h_tbl_median_surv()</a></code> and <code><a href="../reference/control_annot.html">control_surv_med_annot()</a></code> to control the <code><a href="https://rdrr.io/r/base/Round.html" class="external-link">signif()</a></code> precision of the median survival time and confidence interval values annotated in <code><a href="../reference/g_km.html">g_km()</a></code>. (<a href="https://github.com/pharmaverse/tern/issues/1469" class="external-link">#1469</a>)</li>
 </ul>
 </div>
 <div class="section level4">
-<h4 id="bug-fixes-0-9-11">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-9-11"></a>
+<h4 id="bug-fixes-0-9-11-1">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-9-11-1"></a>
 </h4>
 <ul>
 <li>Fixed bug in <code><a href="../reference/h_prop_diff.html">prop_diff_cmh()</a></code> which previously failed when strata combinations had 0 observations.</li>
@@ -148,10 +197,10 @@
 </ul>
 </div>
 <div class="section level4">
-<h4 id="miscellaneous-0-9-11">Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous-0-9-11"></a>
+<h4 id="miscellaneous-0-9-11-1">Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous-0-9-11-1"></a>
 </h4>
 <ul>
-<li>Relaxed <code><a href="../reference/fit_logistic.html">fit_logistic()</a></code> tests to compare only the formula right-hand side, so they no longer break when <code><a href="https://rdrr.io/pkg/survival/man/clogit.html" class="external-link">survival::clogit()</a></code> changes the internally generated response term. (<a href="https://github.com/insightsengineering/tern/issues/1484" class="external-link">#1484</a>)</li>
+<li>Relaxed <code><a href="../reference/fit_logistic.html">fit_logistic()</a></code> tests to compare only the formula right-hand side, so they no longer break when <code><a href="https://rdrr.io/pkg/survival/man/clogit.html" class="external-link">survival::clogit()</a></code> changes the internally generated response term. (<a href="https://github.com/pharmaverse/tern/issues/1484" class="external-link">#1484</a>)</li>
 <li>Updated <code>roxygen2</code> to 8.0.0 and added <code>@exportS3Method</code> tags for S3 methods in <code>decorate_grob.R</code> and <code>utils_grid.R</code>.</li>
 <li>Converted <code><a href="../reference/survival_time.html">s_surv_time()</a></code> to exported functions.</li>
 </ul>
@@ -194,7 +243,7 @@
 <h4 id="enhancements-0-9-9">Enhancements<a class="anchor" aria-label="anchor" href="#enhancements-0-9-9"></a>
 </h4>
 <ul>
-<li>Updated <code><a href="../reference/response_subgroups.html">tabulate_rsp_subgroups()</a></code> and <code><a href="../reference/survival_duration_subgroups.html">tabulate_survival_subgroups()</a></code> to specify parameter <code>parent_name</code> when using <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/split_rows_by.html" class="external-link">split_rows_by()</a></code> and <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/analyze.html" class="external-link">analyze()</a></code> internally to enhance table paths.</li>
+<li>Updated <code><a href="../reference/response_subgroups.html">tabulate_rsp_subgroups()</a></code> and <code><a href="../reference/survival_duration_subgroups.html">tabulate_survival_subgroups()</a></code> to specify parameter <code>parent_name</code> when using <code><a href="https://rdrr.io/pkg/rtables/man/split_rows_by.html" class="external-link">split_rows_by()</a></code> and <code><a href="https://rdrr.io/pkg/rtables/man/analyze.html" class="external-link">analyze()</a></code> internally to enhance table paths.</li>
 </ul>
 </div>
 <div class="section level4">
@@ -221,7 +270,7 @@
 <h4 id="enhancements-0-9-8">Enhancements<a class="anchor" aria-label="anchor" href="#enhancements-0-9-8"></a>
 </h4>
 <ul>
-<li>Refactored <code><a href="../reference/abnormal.html">count_abnormal()</a></code>, <code><a href="../reference/abnormal_by_baseline.html">count_abnormal_by_baseline()</a></code>, <code><a href="../reference/abnormal_by_marked.html">count_abnormal_by_marked()</a></code>, <code><a href="../reference/abnormal_by_worst_grade.html">count_abnormal_by_worst_grade()</a></code>, <code><a href="../reference/abnormal_lab_worsen_by_baseline.html">count_abnormal_lab_worsen_by_baseline()</a></code>, <code><a href="../reference/count_cumulative.html">count_cumulative()</a></code>, <code><a href="../reference/count_missed_doses.html">count_missed_doses()</a></code>, <code><a href="../reference/survival_coxph_pairwise.html">coxph_pairwise()</a></code>, <code><a href="../reference/estimate_multinomial_rsp.html">estimate_multinomial_rsp()</a></code>, <code><a href="../reference/estimate_proportion.html">estimate_proportion()</a></code>, <code><a href="../reference/prop_diff.html">estimate_proportion_diff()</a></code>, <code><a href="../reference/odds_ratio.html">estimate_odds_ratio()</a></code>, <code><a href="../reference/summarize_ancova.html">summarize_ancova()</a></code>, <code><a href="../reference/summarize_glm_count.html">summarize_glm_count()</a></code>, <code><a href="../reference/summarize_num_patients.html">summarize_num_patients()</a></code>, <code><a href="../reference/survival_timepoint.html">surv_timepoint()</a></code>, and <code><a href="../reference/prop_diff_test.html">test_proportion_diff()</a></code> to work without <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html" class="external-link">make_afun()</a></code>.</li>
+<li>Refactored <code><a href="../reference/abnormal.html">count_abnormal()</a></code>, <code><a href="../reference/abnormal_by_baseline.html">count_abnormal_by_baseline()</a></code>, <code><a href="../reference/abnormal_by_marked.html">count_abnormal_by_marked()</a></code>, <code><a href="../reference/abnormal_by_worst_grade.html">count_abnormal_by_worst_grade()</a></code>, <code><a href="../reference/abnormal_lab_worsen_by_baseline.html">count_abnormal_lab_worsen_by_baseline()</a></code>, <code><a href="../reference/count_cumulative.html">count_cumulative()</a></code>, <code><a href="../reference/count_missed_doses.html">count_missed_doses()</a></code>, <code><a href="../reference/survival_coxph_pairwise.html">coxph_pairwise()</a></code>, <code><a href="../reference/estimate_multinomial_rsp.html">estimate_multinomial_rsp()</a></code>, <code><a href="../reference/estimate_proportion.html">estimate_proportion()</a></code>, <code><a href="../reference/prop_diff.html">estimate_proportion_diff()</a></code>, <code><a href="../reference/odds_ratio.html">estimate_odds_ratio()</a></code>, <code><a href="../reference/summarize_ancova.html">summarize_ancova()</a></code>, <code><a href="../reference/summarize_glm_count.html">summarize_glm_count()</a></code>, <code><a href="../reference/summarize_num_patients.html">summarize_num_patients()</a></code>, <code><a href="../reference/survival_timepoint.html">surv_timepoint()</a></code>, and <code><a href="../reference/prop_diff_test.html">test_proportion_diff()</a></code> to work without <code><a href="https://rdrr.io/pkg/rtables/man/make_afun.html" class="external-link">make_afun()</a></code>.</li>
 <li>Refactored <code><a href="../reference/afun_riskdiff.html">afun_riskdiff()</a></code>, <code><a href="../reference/count_occurrences.html">count_occurrences()</a></code>, <code><a href="../reference/count_occurrences_by_grade.html">count_occurrences_by_grade()</a></code>, <code><a href="../reference/count_patients_with_event.html">count_patients_with_event()</a></code>, <code><a href="../reference/count_patients_with_flags.html">count_patients_with_flags()</a></code>, <code><a href="../reference/count_values.html">count_values()</a></code>, <code><a href="../reference/incidence_rate.html">estimate_incidence_rate()</a></code>, <code><a href="../reference/h_biomarkers_subgroups.html">h_tab_one_biomarker()</a></code>, <code><a href="../reference/summarize_change.html">summarize_change()</a></code>, <code><a href="../reference/summarize_colvars.html">summarize_colvars()</a></code>, <code><a href="../reference/summarize_patients_exposure_in_cols.html">summarize_patients_exposure_in_cols()</a></code>, <code><a href="../reference/survival_time.html">survival_time()</a></code>, <code><a href="../reference/response_subgroups.html">tabulate_rsp_subgroups()</a></code>, <code><a href="../reference/survival_duration_subgroups.html">tabulate_survival_subgroups()</a></code>, <code><a href="../reference/response_biomarkers_subgroups.html">tabulate_rsp_biomarkers()</a></code>, and <code><a href="../reference/survival_biomarkers_subgroups.html">tabulate_survival_biomarkers()</a></code> to align with new analysis function style.</li>
 <li>Added <code>geom_sd</code> and <code>geom_mean_sd</code> to <code><a href="../reference/analyze_variables.html">s_summary()</a></code> as default available statistics.</li>
 <li>Added <code>denom</code> parameter to <code><a href="../reference/estimate_proportion.html">estimate_proportion()</a></code>.</li>
@@ -246,7 +295,7 @@
 <li>Began deprecation of the unused <code><a href="../reference/h_split_param.html">h_split_param()</a></code> function.</li>
 <li>Began deprecation of the unused <code>label_all</code> parameter to <code><a href="../reference/response_subgroups.html">tabulate_rsp_subgroups()</a></code>, with redirection to the same parameter in <code><a href="../reference/extract_rsp_subgroups.html">extract_rsp_subgroups()</a></code>.</li>
 <li>Began deprecation of the no longer used helper functions <code><a href="../reference/h_biomarkers_subgroups.html">h_tab_one_biomarker()</a></code>, <code><a href="../reference/h_biomarkers_subgroups.html">h_tab_rsp_one_biomarker()</a></code>, and <code><a href="../reference/h_biomarkers_subgroups.html">h_tab_surv_one_biomarker()</a></code>.</li>
-<li>Updated documentation to remove suggestions to use <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html" class="external-link">make_afun()</a></code>.</li>
+<li>Updated documentation to remove suggestions to use <code><a href="https://rdrr.io/pkg/rtables/man/make_afun.html" class="external-link">make_afun()</a></code>.</li>
 <li>Added warnings for <code>geom_mean</code> statistical output.</li>
 <li>Moved helper functions <code><a href="../reference/h_biomarkers_subgroups.html">h_tab_rsp_one_biomarker()</a></code> and <code><a href="../reference/h_biomarkers_subgroups.html">h_tab_surv_one_biomarker()</a></code> into <code>h_biomarkers_subgroups.R</code>.</li>
 <li>Reorganized the utility documentation related to factors (<code>utils_factor.R</code>) into a single file.</li>
@@ -269,11 +318,11 @@
 <li>Added <code>rel_height_plot</code> parameter to <code><a href="../reference/g_lineplot.html">g_lineplot()</a></code> to control the line plot height relative to annotation table height.</li>
 <li>Added <code>as_list</code> parameter to <code><a href="../reference/g_lineplot.html">g_lineplot()</a></code> to allow users to return the line plot and annotation table elements as a list instead of stacked for more complex customization.</li>
 <li>Added vignette “Understanding <code>tern</code> functions” for future reference.</li>
-<li>Added to <code><a href="../reference/analyze_variables.html">analyze_vars()</a></code> statistical names that are used by <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/data.frame_export.html" class="external-link">rtables::as_result_df()</a></code>.</li>
+<li>Added to <code><a href="../reference/analyze_variables.html">analyze_vars()</a></code> statistical names that are used by <code><a href="https://rdrr.io/pkg/rtables/man/data.frame_export.html" class="external-link">rtables::as_result_df()</a></code>.</li>
 <li>Added the possibility to integrate custom statistical functions to default ones in <code><a href="../reference/analyze_variables.html">analyze_vars()</a></code>.</li>
-<li>Refactored <code><a href="../reference/analyze_variables.html">analyze_vars()</a></code> and <code><a href="../reference/analyze_variables.html">a_summary()</a></code> to take all options from <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/additional_fun_params.html" class="external-link">?rtables::additional_fun_params</a></code>.</li>
-<li>Refactored <code><a href="../reference/summarize_change.html">summarize_change()</a></code> and <code><a href="../reference/count_values.html">count_values()</a></code> to work without <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html" class="external-link">make_afun()</a></code>.</li>
-<li>Refactored <code><a href="../reference/count_occurrences_by_grade.html">a_count_occurrences_by_grade()</a></code>, <code><a href="../reference/count_patients_with_event.html">a_count_patients_with_event()</a></code>, and <code><a href="../reference/count_patients_with_flags.html">a_count_patients_with_flags()</a></code> to no longer use <code><a href="https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html" class="external-link">make_afun()</a></code>.</li>
+<li>Refactored <code><a href="../reference/analyze_variables.html">analyze_vars()</a></code> and <code><a href="../reference/analyze_variables.html">a_summary()</a></code> to take all options from <code><a href="https://rdrr.io/pkg/rtables/man/additional_fun_params.html" class="external-link">?rtables::additional_fun_params</a></code>.</li>
+<li>Refactored <code><a href="../reference/summarize_change.html">summarize_change()</a></code> and <code><a href="../reference/count_values.html">count_values()</a></code> to work without <code><a href="https://rdrr.io/pkg/rtables/man/make_afun.html" class="external-link">make_afun()</a></code>.</li>
+<li>Refactored <code><a href="../reference/count_occurrences_by_grade.html">a_count_occurrences_by_grade()</a></code>, <code><a href="../reference/count_patients_with_event.html">a_count_patients_with_event()</a></code>, and <code><a href="../reference/count_patients_with_flags.html">a_count_patients_with_flags()</a></code> to no longer use <code><a href="https://rdrr.io/pkg/rtables/man/make_afun.html" class="external-link">make_afun()</a></code>.</li>
 <li>Refactored <code><a href="../reference/default_stats_formats_labels.html">get_labels_from_stats()</a></code> to use a named list of levels for each statistic instead of row names.</li>
 <li>Updated the <code>table_font_size</code> parameter of <code><a href="../reference/g_lineplot.html">g_lineplot()</a></code> to control the size of all text in the annotation table, including labels.</li>
 <li>Merged <code><a href="../reference/compare_variables.html">compare_vars()</a></code> into <code><a href="../reference/analyze_variables.html">analyze_vars()</a></code> as overlap was significant.</li>
@@ -869,7 +918,7 @@
 <ul>
 <li>Fixed retrieval method of <code>stats::ancova</code> output due to version inconsistency.</li>
 <li>Fixed tests to respect the new standard print for <code>NA</code> coming from <code>rtables</code>.</li>
-<li>Fixed error in tests coming from changes in <code><a href="https://insightsengineering.github.io/formatters/latest-tag/reference/var_labels.html" class="external-link">formatters::var_labels</a></code>.</li>
+<li>Fixed error in tests coming from changes in <code><a href="https://pharmaverse.github.io/formatters/latest-tag/reference/var_labels.html" class="external-link">formatters::var_labels</a></code>.</li>
 <li>Fixed <code>prop_diff</code> functions to respect success responses (<code>TRUE</code> values).</li>
 <li>Fixed error coming from comparing factors vector to characters vector.</li>
 <li>Fixed empty vector exception for <code>cut_quantile_bins</code>.</li>
