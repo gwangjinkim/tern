@@ -1,6 +1,14 @@
 # Changelog
 
-## tern 0.9.11.9000
+## tern 0.9.12
+
+CRAN release: 2026-09-29
+
+- Fixing CRAN release issue.
+
+## tern 0.9.11
+
+CRAN release: 2026-07-17
 
 #### Enhancements
 
