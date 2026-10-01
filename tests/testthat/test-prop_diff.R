@@ -392,6 +392,27 @@ testthat::test_that("`prop_diff_uncond_exact` matches reference values and works
   )
 })
 
+testthat::test_that("check discrepancy example for prop_diff_uncond_exact", {
+  rsp <- c(
+    FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE,
+    TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,
+    TRUE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE
+  )
+  grp <- factor(c(rep("ref", 15), rep("Not-ref", 15)), levels = c("ref", "Not-ref"))
+
+  tab <- table(grp, factor(rsp, levels = c("TRUE", "FALSE")))
+
+  result <- prop_diff_uncond_exact(rsp = rsp, grp = grp, conf_level = 0.95)
+
+  # Compare with exact2x2 package.
+  skip_if_not_installed("exact2x2")
+  exact2x2_result <- exact2x2::uncondExact2x2(
+    x1 = tab[1, 1], n1 = sum(tab[1, ]), x2 = tab[2, 1], n2 = sum(tab[2, ]), 
+    conf.int = TRUE, method = "simple"
+  )
+  expect_equal(result$diff_ci, as.numeric(exact2x2_result$conf.int), tolerance = 1e-5)
+})
+
 testthat::test_that("h_worst_case_tail_probability returns valid tail probabilities", {
   n1 <- 2
   n2 <- 2
