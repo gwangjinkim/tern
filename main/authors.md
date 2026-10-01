@@ -30,6 +30,8 @@
 
 - **David Munoz Tord**. Contributor.
 
+- **Wojciech Wojciak**. Contributor.
+
 - **F. Hoffmann-La Roche AG**. Copyright holder, funder.
 
 ## Citation

@@ -5,6 +5,20 @@
 CRAN release: 2026-09-29
 
 - Fixing CRAN release issue.
+- Fixed
+  [`prop_diff_cmh()`](https://pharmaverse.github.io/tern/reference/h_prop_diff.md)
+  giving wrong Sato and Miettinen-Nurminen results when some strata have
+  only one group, and failing with a single stratum.
+  ([\#1535](https://github.com/pharmaverse/tern/issues/1535))
+- [`prop_diff_cmh()`](https://pharmaverse.github.io/tern/reference/h_prop_diff.md)
+  returns `weights`, `n1` and `n2` for all strata now, with `NA` weights
+  for empty strata. It returns `NA` instead of `0` when no stratum has
+  both groups.
+  ([\#1535](https://github.com/pharmaverse/tern/issues/1535))
+- [`prop_cmh()`](https://pharmaverse.github.io/tern/reference/h_prop_diff_test.md)
+  returns `NA` instead of `1` for the Sato p-value when the response has
+  no variation.
+  ([\#1535](https://github.com/pharmaverse/tern/issues/1535))
 
 ## tern 0.9.11
 
@@ -246,8 +260,9 @@ CRAN release: 2025-06-20
   and
   [`tabulate_survival_subgroups()`](https://pharmaverse.github.io/tern/reference/survival_duration_subgroups.md)
   to specify parameter `parent_name` when using
-  [`split_rows_by()`](https://rdrr.io/pkg/rtables/man/split_rows_by.html)
-  and [`analyze()`](https://rdrr.io/pkg/rtables/man/analyze.html)
+  [`split_rows_by()`](https://insightsengineering.github.io/rtables/latest-tag/reference/split_rows_by.html)
+  and
+  [`analyze()`](https://insightsengineering.github.io/rtables/latest-tag/reference/analyze.html)
   internally to enhance table paths.
 
 #### Bug Fixes
@@ -302,7 +317,7 @@ CRAN release: 2025-04-14
   and
   [`test_proportion_diff()`](https://pharmaverse.github.io/tern/reference/prop_diff_test.md)
   to work without
-  [`make_afun()`](https://rdrr.io/pkg/rtables/man/make_afun.html).
+  [`make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html).
 - Refactored
   [`afun_riskdiff()`](https://pharmaverse.github.io/tern/reference/afun_riskdiff.md),
   [`count_occurrences()`](https://pharmaverse.github.io/tern/reference/count_occurrences.md),
@@ -363,7 +378,7 @@ CRAN release: 2025-04-14
   and
   [`h_tab_surv_one_biomarker()`](https://pharmaverse.github.io/tern/reference/h_biomarkers_subgroups.md).
 - Updated documentation to remove suggestions to use
-  [`make_afun()`](https://rdrr.io/pkg/rtables/man/make_afun.html).
+  [`make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html).
 - Added warnings for `geom_mean` statistical output.
 - Moved helper functions
   [`h_tab_rsp_one_biomarker()`](https://pharmaverse.github.io/tern/reference/h_biomarkers_subgroups.md)
@@ -404,7 +419,7 @@ CRAN release: 2025-01-17
 - Added to
   [`analyze_vars()`](https://pharmaverse.github.io/tern/reference/analyze_variables.md)
   statistical names that are used by
-  [`rtables::as_result_df()`](https://rdrr.io/pkg/rtables/man/data.frame_export.html).
+  [`rtables::as_result_df()`](https://insightsengineering.github.io/rtables/latest-tag/reference/data.frame_export.html).
 - Added the possibility to integrate custom statistical functions to
   default ones in
   [`analyze_vars()`](https://pharmaverse.github.io/tern/reference/analyze_variables.md).
@@ -413,20 +428,20 @@ CRAN release: 2025-01-17
   and
   [`a_summary()`](https://pharmaverse.github.io/tern/reference/analyze_variables.md)
   to take all options from
-  [`?rtables::additional_fun_params`](https://rdrr.io/pkg/rtables/man/additional_fun_params.html).
+  [`?rtables::additional_fun_params`](https://insightsengineering.github.io/rtables/latest-tag/reference/additional_fun_params.html).
 - Refactored
   [`summarize_change()`](https://pharmaverse.github.io/tern/reference/summarize_change.md)
   and
   [`count_values()`](https://pharmaverse.github.io/tern/reference/count_values.md)
   to work without
-  [`make_afun()`](https://rdrr.io/pkg/rtables/man/make_afun.html).
+  [`make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html).
 - Refactored
   [`a_count_occurrences_by_grade()`](https://pharmaverse.github.io/tern/reference/count_occurrences_by_grade.md),
   [`a_count_patients_with_event()`](https://pharmaverse.github.io/tern/reference/count_patients_with_event.md),
   and
   [`a_count_patients_with_flags()`](https://pharmaverse.github.io/tern/reference/count_patients_with_flags.md)
   to no longer use
-  [`make_afun()`](https://rdrr.io/pkg/rtables/man/make_afun.html).
+  [`make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html).
 - Refactored
   [`get_labels_from_stats()`](https://pharmaverse.github.io/tern/reference/default_stats_formats_labels.md)
   to use a named list of levels for each statistic instead of row names.
