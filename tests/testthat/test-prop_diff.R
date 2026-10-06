@@ -380,14 +380,58 @@ testthat::test_that("prop_diff_uncond_exact matches reference values and works w
   # No observations: Same behavior as other methods.
   case7 <- mk_data(n11 = 0, n21 = 0, n1 = 0, n2 = 0)
   result7 <- prop_diff_uncond_exact(rsp = case7$rsp, grp = case7$grp)
-  expect_true(is.nan(result7$diff))
-  expect_equal(result7$diff_ci, c(NaN, NaN))
+  expect_true(is.na(result7$diff))
+  expect_equal(result7$diff_ci, c(NA, NA))
 
   skip_on_cran()
-  case8 <- mk_data(n11 = 200, n21 = 100, n1 = 330, n2 = 330)
+  case8 <- mk_data(n11 = 200, n21 = 100, n1 = 335, n2 = 330)
   expect_warning(
     prop_diff_uncond_exact(rsp = case8$rsp, grp = case8$grp),
-    "long computation"
+    "n1 = 335 and n2 = 330 may lead to long computation tim"
+  )
+})
+
+testthat::test_that("prop_diff_uncond_exact preserves ties in the SAS regression example", {
+  tbl <- array(
+    c(5, 7, 10, 8),
+    dim = c(2L, 2L),
+    dimnames = list(c("ref", "Non-ref"), c("TRUE", "FALSE"))
+  )
+  rsp <- rep(c(TRUE, FALSE, TRUE, FALSE), times = as.vector(t(tbl)))
+  grp <- factor(rep(rownames(tbl), rowSums(tbl)), levels = rownames(tbl))
+
+  result <- prop_diff_uncond_exact(rsp = rsp, grp = grp, conf_level = 0.95)
+
+  # Expected SAS result.
+  sas_result <- c(-0.2514531, 0.4907849)
+  expect_equal(result$diff_ci, sas_result, tolerance = 1e-5)
+})
+
+testthat::test_that("prop_diff_uncond_exact respects response and group reversal with ties", {
+  # Equal and unequal margins, both with multiple tables tied at the observed statistic.
+  for (n1 in c(15L, 20L)) {
+    rsp <- c(rep(TRUE, 5), rep(FALSE, 10), rep(TRUE, 7), rep(FALSE, n1 - 7))
+    grp <- factor(rep(c("ref", "Non-ref"), c(15L, n1)), levels = c("ref", "Non-ref"))
+    result <- prop_diff_uncond_exact(rsp, grp)
+    complemented <- prop_diff_uncond_exact(!rsp, grp)
+    swapped <- prop_diff_uncond_exact(rsp, factor(grp, levels = rev(levels(grp))))
+
+    expect_equal(complemented$diff, -result$diff)
+    expect_equal(complemented$diff_ci, -rev(result$diff_ci), tolerance = 1e-6)
+    expect_equal(swapped$diff, -result$diff)
+    expect_equal(swapped$diff_ci, -rev(result$diff_ci), tolerance = 1e-6)
+  }
+})
+
+testthat::test_that("prop_diff_uncond_exact gives expected error for exceeding n1 * n2 threshold", {
+  skip_on_cran()
+  n_each <- 2^(ceiling(.Machine$double.digits / 2))
+  expect_error(
+    prop_diff_uncond_exact(
+      rsp = c(rep(TRUE, n_each), rep(FALSE, n_each)),
+      grp = factor(c(rep("B", n_each), rep("A", n_each)), levels = c("B", "A"))
+    ),
+    "exceed"
   )
 })
 
