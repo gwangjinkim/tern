@@ -938,6 +938,13 @@ testthat::test_that("s_proportion_diff still accepts the deprecated method name 
     "uncond_exact"
   )
   expect_identical(result, do.call(s_proportion_diff, c(args, list(method = "uncond_exact"))))
+
+  # A named scalar (e.g. taken from a config vector) is still accepted by `match.arg()`.
+  lifecycle::expect_deprecated(
+    result_named <- do.call(s_proportion_diff, c(args, list(method = c(m = "uncond_exact_diff")))),
+    "uncond_exact"
+  )
+  expect_identical(result_named, result)
 })
 
 testthat::test_that("d_proportion_diff describes uncond_exact and its deprecated name", {

@@ -112,7 +112,7 @@ s_proportion_diff <- function(df,
   }
   checkmate::assert_atomic(val)
 
-  if (identical(method, "uncond_exact_diff")) {
+  if (isTRUE(method == "uncond_exact_diff")) {
     lifecycle::deprecate_warn(
       when = "0.9.13",
       what = I("`method = \"uncond_exact_diff\"`"),
