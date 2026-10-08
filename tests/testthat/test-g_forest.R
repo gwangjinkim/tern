@@ -517,6 +517,21 @@ testthat::test_that("g_forest argument deprecation warnings work", {
 
 ## Deprecated functions ----
 
+# Evaluates `expr`, muffling and collecting all `lifecycle` deprecation warnings it signals.
+# The number of warnings from internal helper calls depends on the `lifecycle` version, so tests
+# should only assert on the deprecation of the function under test.
+collect_deprecations <- function(expr) {
+  messages <- character()
+  value <- withCallingHandlers(
+    expr,
+    lifecycle_warning_deprecated = function(w) {
+      messages <<- c(messages, conditionMessage(w))
+      invokeRestart("muffleWarning")
+    }
+  )
+  list(value = value, messages = messages)
+}
+
 testthat::test_that("forest_grob works", {
   tbl <- rtable(
     header = rheader(
@@ -533,25 +548,15 @@ testthat::test_that("forest_grob works", {
   upper <- c(1.1, 1.6, 1.6)
   symbol_scale <- c(1, 1.25, 1.5)
 
-  lifecycle::expect_deprecated(
-    lifecycle::expect_deprecated(
-      lifecycle::expect_deprecated(
-        lifecycle::expect_deprecated(
-          lifecycle::expect_deprecated(
-            lifecycle::expect_deprecated(
-              lifecycle::expect_deprecated(
-                p <- forest_grob(tbl, x, lower, upper,
-                  vline = 1, forest_header = c("A", "B"),
-                  x_at = c(.1, 1, 10), xlim = c(0.1, 10), logx = TRUE, symbol_size = symbol_scale,
-                  vp = grid::plotViewport(margins = c(1, 1, 1, 1))
-                )
-              )
-            )
-          )
-        )
-      )
+  res <- collect_deprecations(
+    forest_grob(tbl, x, lower, upper,
+      vline = 1, forest_header = c("A", "B"),
+      x_at = c(.1, 1, 10), xlim = c(0.1, 10), logx = TRUE, symbol_size = symbol_scale,
+      vp = grid::plotViewport(margins = c(1, 1, 1, 1))
     )
   )
+  testthat::expect_true(any(grepl("`forest_grob()`", res$messages, fixed = TRUE)))
+  testthat::expect_false(is.null(res$value))
 })
 
 testthat::test_that("forest_viewport works", {
@@ -565,7 +570,9 @@ testthat::test_that("forest_viewport works", {
     rrow("row 3", 1.2, 0.8, 1.2)
   )
 
-  lifecycle::expect_deprecated(lifecycle::expect_deprecated(lifecycle::expect_deprecated(v <- forest_viewport(tbl))))
+  res <- collect_deprecations(forest_viewport(tbl))
+  testthat::expect_true(any(grepl("`forest_viewport()`", res$messages, fixed = TRUE)))
+  testthat::expect_false(is.null(res$value))
 })
 
 testthat::test_that("g_forest aligns table rows with forest plot rows for any header height", {
