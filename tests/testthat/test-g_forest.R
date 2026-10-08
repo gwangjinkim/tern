@@ -567,3 +567,53 @@ testthat::test_that("forest_viewport works", {
 
   lifecycle::expect_deprecated(lifecycle::expect_deprecated(lifecycle::expect_deprecated(v <- forest_viewport(tbl))))
 })
+
+testthat::test_that("g_forest aligns table rows with forest plot rows for any header height", {
+  n_rows <- 10
+  rows <- lapply(seq_len(n_rows), function(i) rrow(paste("row", i), 0, c(-1, 1)))
+  tables <- list(
+    "1" = rtable(header = rheader(rrow("", "est", "CI")), rows),
+    "2" = rtable(
+      header = rheader(rrow("", rcell("A", colspan = 2)), rrow("", "est", "CI")),
+      rows
+    ),
+    "3" = rtable(
+      header = rheader(
+        rrow("", rcell("AA", colspan = 2)),
+        rrow("", rcell("A", colspan = 2)),
+        rrow("", "est", "CI")
+      ),
+      rows
+    )
+  )
+
+  for (hdr_height in names(tables)) {
+    p <- g_forest(
+      tbl = tables[[hdr_height]], col_x = 1, col_ci = 2, logx = FALSE,
+      xlim = c(-2, 2), x_at = c(-2, 0, 2), vline = 0, as_list = TRUE
+    )
+    b_table <- ggplot2::ggplot_build(p$table)
+    b_plot <- ggplot2::ggplot_build(p$plot)
+
+    # Vertical position of each row label in the table.
+    table_y <- vapply(seq_len(n_rows), function(i) {
+      for (layer_data in b_table$data) {
+        if ("label" %in% names(layer_data) && paste("row", i) %in% layer_data$label) {
+          return(layer_data$y[layer_data$label == paste("row", i)])
+        }
+      }
+      NA_real_
+    }, numeric(1))
+    # Vertical position of each point in the forest plot (the only layer drawing points).
+    point_layer <- Filter(function(layer) "size" %in% names(layer) && "shape" %in% names(layer), b_plot$data)[[1]]
+
+    testthat::expect_equal(
+      sort(point_layer$y), sort(table_y),
+      info = paste("header height", hdr_height)
+    )
+    testthat::expect_equal(
+      b_table$layout$panel_params[[1]]$y.range, b_plot$layout$panel_params[[1]]$y.range,
+      info = paste("header height", hdr_height)
+    )
+  }
+})
